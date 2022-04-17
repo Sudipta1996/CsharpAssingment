@@ -1,0 +1,8 @@
+C:\Users\hp\source\repos\FileIO_Assignment\FileIO_Assignment\bin\Debug\FileIO_Assignment.exe.config
+C:\Users\hp\source\repos\FileIO_Assignment\FileIO_Assignment\bin\Debug\FileIO_Assignment.exe
+C:\Users\hp\source\repos\FileIO_Assignment\FileIO_Assignment\bin\Debug\FileIO_Assignment.pdb
+C:\Users\hp\source\repos\FileIO_Assignment\FileIO_Assignment\obj\Debug\FileIO_Assignment.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\FileIO_Assignment\FileIO_Assignment\obj\Debug\FileIO_Assignment.csproj.SuggestedBindingRedirects.cache
+C:\Users\hp\source\repos\FileIO_Assignment\FileIO_Assignment\obj\Debug\FileIO_Assignment.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\FileIO_Assignment\FileIO_Assignment\obj\Debug\FileIO_Assignment.exe
+C:\Users\hp\source\repos\FileIO_Assignment\FileIO_Assignment\obj\Debug\FileIO_Assignment.pdb
