@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CollectionFramework_Assignmenst.Yoo</StartupObject>
+    <StartupObject>CollectionFramework_Assignmenst.DemoAccount</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
