@@ -1,0 +1,8 @@
+C:\Users\hp\source\repos\DemoTest\DemoTest\bin\Debug\DemoTest.exe.config
+C:\Users\hp\source\repos\DemoTest\DemoTest\bin\Debug\DemoTest.exe
+C:\Users\hp\source\repos\DemoTest\DemoTest\bin\Debug\DemoTest.pdb
+C:\Users\hp\source\repos\DemoTest\DemoTest\obj\Debug\DemoTest.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\DemoTest\DemoTest\obj\Debug\DemoTest.csproj.SuggestedBindingRedirects.cache
+C:\Users\hp\source\repos\DemoTest\DemoTest\obj\Debug\DemoTest.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\DemoTest\DemoTest\obj\Debug\DemoTest.exe
+C:\Users\hp\source\repos\DemoTest\DemoTest\obj\Debug\DemoTest.pdb
