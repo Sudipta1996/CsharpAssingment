@@ -1,0 +1,16 @@
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\bin\Debug\StudentDemo.exe.config
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\bin\Debug\StudentDemo.exe
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\bin\Debug\StudentDemo.pdb
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\bin\Debug\EntityFramework.dll
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\bin\Debug\EntityFramework.xml
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.csproj.SuggestedBindingRedirects.cache
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.csproj.CopyComplete
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.exe
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.pdb
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.Migrations.CreatePost.resources
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.csproj.GenerateResource.cache
+C:\Users\hp\source\repos\StudentDemo\StudentDemo\obj\Debug\StudentDemo.Migrations.Marks.resources
