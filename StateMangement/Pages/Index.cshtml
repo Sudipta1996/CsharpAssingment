@@ -1,0 +1,38 @@
+﻿@*@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+@page "{handler?}"
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model StateMangement.Pages.IndexModel
+
+<div style="width:75%;margin:1em auto;text-align:center">
+
+  @if (String.IsNullOrEmpty(Model.UserName))
+  {
+
+    <a asp-page-handler="DoLogin">Login</a>
+
+  }
+  else
+  {
+
+    <span>
+      You are logged in as @Model.UserName
+    </span>
+
+    <br />
+
+    <a asp-page-handler="LogOff">LogOff</a>
+
+  }
+
+</div>

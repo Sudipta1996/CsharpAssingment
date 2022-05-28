@@ -1,0 +1,44 @@
+﻿@model Library
+@{ Layout = "_Layout"; ViewBag.Title = "Add a Book";}
+ 
+<h2>Add Book <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddBook" method="post">
+    <div class="form-group">
+        <label for="BookName">BookName:</label>
+        <input class="form-control" name="BookName" />
+    </div>
+    <div class="form-group">
+        <label for="AuthorName">Author Name:</label>
+        <input class="form-control" name="Authorname" />
+    </div>
+    <div class="form-group">
+        <label for="ISBN">ISBN:</label>
+        <input class="form-control" name="ISBN" type="number"/>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+ 
+@*@if (Model == null)
+{
+    <h2>Library</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>BookName</th>
+                <th>Author Name</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.BookId</td>
+                <td>@Model.BookName</td>
+                <td>@Model.AuthorName</td>
+                <td>@Model.ISBN</td>
+            </tr>
+        </tbody>
+    </table>
+}*@

@@ -1,0 +1,9 @@
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.AssemblyInfo.cs
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.RazorAssemblyInfo.cache
+C:\Users\hp\source\repos\TeacherMangementCoreApp\obj\Debug\net6.0\ProductMangementCoreApp.RazorAssemblyInfo.cs

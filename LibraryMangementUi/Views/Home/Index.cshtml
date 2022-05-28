@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Library>
+@{ Layout = "_Layout"; ViewBag.Title = "All Books";}
+ 
+<h2>All List Of Books</h2>
+<a asp-action="AddBook" class="btn btn-sm btn-primary">Add New Book</a>
+<a asp-action="GetBook" class="btn btn-sm btn-secondary">Get Book</a>
+ 
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>BookID</th>
+            <th>BookName</th>
+            <th>Author Name</th>
+            <th>ISBN</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.BookId</td>
+                <td>@r.BookName</td>
+                <td>@r.AuthorName</td>
+                <td>@r.ISBN</td>
+                <td>
+                    <a asp-action="UpdateBook" asp-route-id="@r.BookId">
+                        <img src="/icon/edit.jpg" width="48" height="48"/>
+
+                    </a>
+                    
+                </td>
+                <td>
+                    <form asp-action="DeleteBook" method="post">
+                        <input type="hidden" value="@r.BookId" name="Id" />
+                        <input type="image" src="/icon/close.jpg" width="48" height="48" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+                  

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Data";
+}
+
+<h1>Data</h1>
+@if (TempData.Peek("message") == null)
+{
+    <h2>TempData has not been set.</h2>
+}
+else
+{
+    <h2>TempData has been set.</h2>
+}
+
+<br />
+
+<a asp-controller="Home" asp-action="SecondData">
+Go to Second Data
+</a>

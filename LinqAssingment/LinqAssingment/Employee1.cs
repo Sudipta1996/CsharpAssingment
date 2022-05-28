@@ -163,11 +163,11 @@ new Employee1() { EmployeeID = 1010,FirstName = "Sumit",LastName = "Shah",Title 
         //{
 
         //    var query = from s in employeeList
-        //                 group s by new
-        //                 {
-        //                     s.Title,
-        //                     s.City,
-        //                 } into empGrp
+        //                group s by new
+        //                {
+        //                    s.Title,
+        //                    s.City,
+        //                } into empGrp
 
 
         //    foreach (var item in query)

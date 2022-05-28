@@ -1,0 +1,19 @@
+﻿@model StudentManagement.Models.teacher
+
+
+@using (Html.BeginForm("CreateAccount", "Home"))
+{
+    <p>
+        Teacher Id: @Html.TextBoxFor(a => a.id)
+    </p>
+
+    <p>
+        Teacher Name: @Html.TextBoxFor(a => a.name)
+    </p>
+
+    <p>
+        Teacher Email: @Html.TextBoxFor(a => a.email)
+    </p>
+
+    <input type="submit" value="Add Database" />
+}

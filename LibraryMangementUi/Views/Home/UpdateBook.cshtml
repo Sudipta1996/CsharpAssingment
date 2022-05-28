@@ -1,0 +1,48 @@
+﻿@model Library
+@{ Layout = "_Layout"; ViewBag.Title = "Update a Book";}
+ 
+<h2>Update a Book <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="BookId"></label>
+        <input class="form-control" asp-for="BookId" readonly/>
+    </div>
+    <div class="form-group">
+        <label asp-for="BookName"></label>
+        <input class="form-control" asp-for="BookName" />
+    </div>
+    <div class="form-group">
+        <label asp-for="AuthorName"></label>
+        <input class="form-control" asp-for="AuthorName" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ISBN"></label>
+        <input class="form-control" asp-for="ISBN" type="number"/>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>
+ 
+@*@if (ViewBag.Result == "Success")
+{
+    <h2>Reservation</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>BookName</th>
+                <th>AuthorName</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.BookId</td>
+                <td>@Model.BookName</td>
+                <td>@Model.AuthorName</td>
+                <td>@Model.ISBN</td>
+            </tr>
+        </tbody>
+    </table>
+}*@

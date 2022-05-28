@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TeacherManagementUI.Models.TeacherViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Teachers ..!</h2>
+<p class="text-right">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        <table class="table table-responsive" style="width:400px">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

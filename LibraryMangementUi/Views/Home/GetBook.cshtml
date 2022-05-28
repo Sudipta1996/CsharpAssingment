@@ -1,0 +1,37 @@
+﻿@model Library
+@{ Layout = "_Layout"; ViewBag.Title = "Get Book by Id";}
+ 
+<h2>Get Book by Id <a asp-action="Index" class="btn btn-sm btn-primary">Back</a></h2>
+<h3>@ViewBag.StatusCode</h3>
+<form method="post">
+    <div class="form-group">
+        <label for="BookId">BookId:</label>
+        <input class="form-control" name="BookId" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Get Book</button>
+    </div>
+</form>
+ 
+@if (Model != null)
+{
+    <h2>Library</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Author Name</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.BookId</td>
+                <td>@Model.BookName</td>
+                <td>@Model.AuthorName</td>
+                <td>@Model.ISBN</td>
+            </tr>
+        </tbody>
+    </table>
+}

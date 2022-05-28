@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<StudentManagement.Models.teacher>
+
+<h2>
+    Viewing all accounts...
+</h2>
+@Html.ActionLink("Create new account", "Create")
+@foreach (var a in Model)
+{
+    <p>
+        Teacher Number: @a.id
+    </p>
+    <p>
+        Teacher Name: @a.name
+    </p>
+
+    <p>
+        Teacher: @a.email
+    </p>
+    @Html.ActionLink("Edit", "Edit",new {tid = a.id }) <span>&nbsp;</span>
+    @Html.ActionLink("Delete", "Delete")
+    <hr />
+}

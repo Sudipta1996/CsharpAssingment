@@ -1,0 +1,19 @@
+﻿
+@model StudentManagement.Models.teacher
+<h1>Editing Details for Account No. @Model.id</h1>
+
+@using (Html.BeginForm("EditAccount", "Home"))
+{
+    @Html.HiddenFor(a => a.id)
+
+    <p>
+        Name: @Html.TextBoxFor(a => a.name)
+    </p>
+
+    <p>
+        Current Balance: @Html.TextBoxFor(a => a.email)
+    </p>
+
+    <input type="submit" value="Save Modifications" />
+}
+

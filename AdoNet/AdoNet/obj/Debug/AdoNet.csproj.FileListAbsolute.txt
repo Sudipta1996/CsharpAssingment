@@ -1,0 +1,8 @@
+C:\Users\hp\source\repos\AdoNet\AdoNet\bin\Debug\AdoNet.exe.config
+C:\Users\hp\source\repos\AdoNet\AdoNet\bin\Debug\AdoNet.exe
+C:\Users\hp\source\repos\AdoNet\AdoNet\bin\Debug\AdoNet.pdb
+C:\Users\hp\source\repos\AdoNet\AdoNet\obj\Debug\AdoNet.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\AdoNet\AdoNet\obj\Debug\AdoNet.csproj.SuggestedBindingRedirects.cache
+C:\Users\hp\source\repos\AdoNet\AdoNet\obj\Debug\AdoNet.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\AdoNet\AdoNet\obj\Debug\AdoNet.exe
+C:\Users\hp\source\repos\AdoNet\AdoNet\obj\Debug\AdoNet.pdb

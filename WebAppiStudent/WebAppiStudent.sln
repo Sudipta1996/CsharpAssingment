@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppiStudent", "WebAppiStudent\WebAppiStudent.csproj", "{05A044B0-DBD6-4333-BE22-147DCFD2CA89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05A044B0-DBD6-4333-BE22-147DCFD2CA89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A044B0-DBD6-4333-BE22-147DCFD2CA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A044B0-DBD6-4333-BE22-147DCFD2CA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A044B0-DBD6-4333-BE22-147DCFD2CA89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {148BC932-E976-4C29-A34D-795B8F5F0369}
+	EndGlobalSection
+EndGlobal
