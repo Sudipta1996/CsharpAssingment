@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PharmacyManagementSystem.Models;
+using pharmacyManagementWebApiservice.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace pharmacyManagementWebApiservice.Repository
 {
-    public class DrugRepository : IDrugRepository
+    public class DrugRepository : IDrugRepository<DrugDetail>
     {
         private readonly PharmacyManagementContext _context;
 

@@ -1,7 +1,7 @@
-﻿using PharmacyManagementSystem.Models;
+﻿using pharmacyManagementWebApiservice.Models;
 using System.Collections.Generic;
 
-namespace PharmacyManagementSystem.Repository
+namespace pharmacyManagementWebApiservice.Repository
 {
     public interface ISuplierRepository
     {

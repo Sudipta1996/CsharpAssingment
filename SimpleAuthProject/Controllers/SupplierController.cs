@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PharmacyManagementSystem.Models;
-using PharmacyManagementSystem.Repository;
+using pharmacyManagementWebApiservice.Models;
+using pharmacyManagementWebApiservice.Repository;
 using pharmacyManagementWebApiservice.Dto;
 using pharmacyManagementWebApiservice.Models;
 using System;
@@ -22,40 +22,68 @@ namespace pharmacyManagementWebApiservice.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+           
+            try
+            {
+                var supplier = _suplierRepository.GetAll();
+                return Ok(supplier);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
             
-            var supplier = _suplierRepository.GetAll();
-            return Ok(supplier);
+            
 
 
         }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            if (id <= 0)
+            try
             {
-                throw new InvalidException("Invalid Id");
+                if(id <= 0)
+                {
+                    throw new ArgumentException();
+                }
+                var supplier = _suplierRepository.GetSupplier(id);
+                if (supplier == null)
+                {
+                    throw new ArgumentException();
+                }
+                return new OkObjectResult(supplier);
             }
-            var supplier = _suplierRepository.GetSupplier(id);
-            if (supplier == null)
+            catch (Exception)
             {
-                throw new InvalidException("Invalid Id");
+
+                return BadRequest();
             }
-            return new OkObjectResult(supplier);
+            
         }
         [HttpPost]
         public IActionResult Post(CreateSupplierDto createSupplier)
         {
-            var supplier = new SupplierDetail
+            try
             {
-                SupplierName = createSupplier.SupplierName,
-                SupplierContact = createSupplier.SupplierContact,
-                SupplierEmail = createSupplier.SupplierEmail,
-            };
-            var newSupplier = _suplierRepository.Create(supplier);
-            return Created("Sucess", newSupplier);
+                var supplier = new SupplierDetail
+                {
+                    SupplierName = createSupplier.SupplierName,
+                    SupplierContact = createSupplier.SupplierContact,
+                    SupplierEmail = createSupplier.SupplierEmail,
+                };
+                var newSupplier = _suplierRepository.Create(supplier);
+                return Created("Sucess", newSupplier);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            
 
         }
-        #region supplier      
+        #region supplierUpdate      
         [HttpPut("{id}")]
         public IActionResult Put(int id, CreateSupplierDto createSupplier)
         {
@@ -81,8 +109,17 @@ namespace pharmacyManagementWebApiservice.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _suplierRepository.DeleteSupplier(id);
-            return Ok();
+            try
+            {
+                _suplierRepository.DeleteSupplier(id);
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
     }

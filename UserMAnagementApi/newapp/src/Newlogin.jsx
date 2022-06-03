@@ -1,137 +1,139 @@
-import React, {useState,useEffect} from 'react';
-import { useHistory} from "react-router-dom";
+import React,{useState} from "react";
 import axios from "axios";
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import {useHistory} from "react-router-dom";
+import {
+  Grid,
+  Paper,
+  Avatar,
+  TextField,
+  Button,
+} from "@material-ui/core";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import logo from "./doctorlogo.png"
+
+const Newlogin=()=>{
+   const history=useHistory();
+//   if(localStorage.getItem("admin")==0)
+//   {
+//     history.push("/")
+//   }
+
+//   const[state1,setState1]=useState({
+//     doctor:[]
+//   })
+//  useEffect(()=>{
+//     axios.get("http://localhost:4000/doctor").then(res=>{
+//       const doctors=res.data.map(data=>({
+//         "regno":data.regno
+//       }))
+//       setState1({
+//         ...state1,
+//         doctor:doctors
+//       })
+//     })
+//  })
 
 
-import logo from "./img/doctor.png"
-const Login=(props)=>{
+
+  // const paperStyle = {
+  //   padding: 20,
+  //   height: "70vh",
+  //   width: 600,
+  //   margin: "20px auto",
     
-    const[state,setState]=useState({
-        email:"",
-        password:"",
-       
-       
-        
-    });
-    const[state1,setState1]=useState({
-      regno:""
-    })
-    
+  // };
   
-  const change=(e)=>{
-      e.preventDefault();
-      const{name,value}=e.target;
-      setState({
+  // const avatarStyle = { backgroundColor: "#1bbd7e" };
+  // const btnstyle = { margin: "30px 0" };
+    const[state,setState]=useState({
+        Email:"",
+        UserPassword:"",
+    })
+    const change=(e)=>{
+        const{name,value}=e.target;
+        setState({
           ...state,
           [name]:value
-      })
+        })
+    }
+    const submit=()=>{
+
       
-  }
-  let history=useHistory();
-  const submit=()=>{
-     
-      axios.get("http://localhost:4000/user").then(res=>{
-        
-          // users=res.data,
-          console.log("reg data is==",res.data[0].regno)
-         
+        if(state.Email && state.UserPassword)
+        {
+         axios.post("http://localhost:12831/api/Auth/Login",{
+           Email:state.Email,
+           UserPassword:state.UserPassword
+       })
+       history.push("/home")
+        }
+        else
+        {
           
-         //history.push("/home"); 
-         console.log(res.data)
-       let e=true 
-      
-      if(state.email && state.password)
-      {
-        for(let i=0;i<res.data.length;i++){
-          if(res.data[i].email==state.email)
+           if(!state.Email)
           {
-            
-            if(res.data[i].password==state.password)
-            {
-              console.log(res.data[i].email,res.data[i].password,state.email,state.password)
-              e=false
-                  localStorage.setItem("active",1)
-                  
-                history.push(`/dropdown/${res.data[i].regno}`);
-             // alert("Sucessfully")
- 
-            }
-           
+            alert("please enter email")
+          }
+          else if(!state.UserPassword)
+          {
+            alert("please enter the password")
           }
         }
-       if(e==true )
-       {
-         alert("Invalid email or password")
-         
-       }
-      }
-      else{
-       if(state.email)
-       {
-         alert("please enter the password")
-       }
-       else{
-         alert("please enter the email")
-       }
-      }
-             
-     
+      
+     console.log(state.Email,state.UserPassword);
     
-         
-
-     })
-     
-    
-  }
-  
-  
-
-
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
+    }
+    const paperStyle={padding :20,height:'75vh',width:280, margin:"20px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
     const btnstyle={margin:'8px 0'}
     return(
-        
+        <>
+    <div class="bg_image">
+      <div class="container">
+      <Grid>
+        <Paper elevation={10} style={paperStyle}>
+          <Grid align="center">
+            <Avatar style={avatarStyle}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <h2>SignIn</h2>
+          </Grid>
+          <TextField
+            label="Email"
+            placeholder="Email"
+            fullWidth
+            name="Email" onChange={change}
+            required
+          />
+          <TextField
+            label="Password"
+            placeholder="Password"
+            fullWidth
+            type='password'
+            required
+            name="UserPassword"
+            onChange={change}
+          />
 
-        <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-                    <h2>Doctor Sign In</h2>
-                </Grid>
-                <TextField label='Email' placeholder='Enter Email' fullWidth required name="email"
-                       value={state.email}
-                       onChange={change}/>
-                <TextField label='Password' placeholder='Enter password' type='password' fullWidth required name="password"
-                       value={state.password}
-                       onChange={change}
-                        />
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    }
-                    label="Remember me"
-                 />
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth onClick = {submit}>Sign in</Button>
-                
-                <img src={logo} alt="" className="doctor" />
-            </Paper>
-            
-            </Grid>
-            
-
-     
-            
-        
-        
-        
+          <Button
+            type="submit"
+            color="primary"
+            variant="contained"
+            style={btnstyle}
+            fullWidth
+            onClick={submit}
+          >
+            Submit
+          </Button>
+          <img src={logo} alt="" className="doctor" />
+        </Paper>
+      </Grid>
+    </div>
+    </div>
+    </>
     )
 }
-export default Login;
+
+export default Newlogin;
+
+            

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PharmacyManagementSystem.Dto;
-using PharmacyManagementSystem.Helper;
-using PharmacyManagementSystem.Models;
-using PharmacyManagementSystem.Repository;
+using pharmacyManagementWebApiservice.Dto;
+using pharmacyManagementWebApiservice.Helper;
+using pharmacyManagementWebApiservice.Models;
+using pharmacyManagementWebApiservice.Repository;
 using System;
 
-namespace PharmacyManagementSystem.Controllers
+namespace pharmacyManagementWebApiservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

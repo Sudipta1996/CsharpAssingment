@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PharmacyManagementSystem.Models;
+using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Dto;
 using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Repository;
 using System.Threading.Tasks;
+using System;
 
 namespace pharmacyManagementWebApiservice.Controllers
 {
@@ -11,74 +12,131 @@ namespace pharmacyManagementWebApiservice.Controllers
     [ApiController]
     public class DrugController : ControllerBase
     {
-        private readonly IDrugRepository _drugRepository;
+        private readonly IDrugRepository<DrugDetail> _drugRepository;
 
-        public DrugController(IDrugRepository drugRepository)
+        public DrugController(IDrugRepository<DrugDetail> drugRepository)
         {
             _drugRepository = drugRepository;
         }
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            var drug = await _drugRepository.GetAll();
-            return Ok(drug);
+            try
+            {
+                var drug = await _drugRepository.GetAll();
+                return Ok(drug);
+            }
+            catch (System.Exception)
+            {
+
+                return BadRequest();
+            }
+            
 
         }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            if (id <= 0)
+            try
             {
-                throw new InvalidException("Invalid Id");
+                if (id <= 0)
+                {
+                    throw new ArgumentException();
+                }
+                var supplier = _drugRepository.GetDrug(id);
+                if (supplier == null)
+                {
+                    throw new ArgumentException();
+                }
+                return new OkObjectResult(supplier);
             }
-            var supplier = _drugRepository.GetDrug(id);
-            if (supplier == null)
+            catch (System.Exception)
             {
-                throw new InvalidException("Invalid Id");
+
+                return BadRequest();
             }
-            return new OkObjectResult(supplier);
+            
         }
         [HttpGet("Drugs/{drugName}")]
         public IActionResult GetDrugName(string drugName)
         {
-            var drug = _drugRepository.GetDrugName(drugName);
-            return new OkObjectResult(drug);
+            try
+            {
+                var drug = _drugRepository.GetDrugName(drugName);
+                return new OkObjectResult(drug);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            
         }
         [HttpPost]
         public IActionResult Post(DrugDto drugDto)
         {
-            var drug = new DrugDetail
+            try
             {
-                DrugName = drugDto.DrugName,
-                Quantity = drugDto.Quantity,
-                Price = drugDto.Price,
-                SupplierId = drugDto.SupplierId,
-            };
-            var newSupplier = _drugRepository.Create(drug);
-            return Created("Sucess", newSupplier);
+                var drug = new DrugDetail
+                {
+                    DrugName = drugDto.DrugName,
+                    Quantity = drugDto.Quantity,
+                    Price = drugDto.Price,
+                    ExpiryDate = drugDto.ExpiryDate,
+                    SupplierId = drugDto.SupplierId,
+                };
+                var newSupplier = _drugRepository.Create(drug);
+                return Created("Sucess", newSupplier);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+
+            }
+            
 
         }
         [HttpPut("{id}")]
         public IActionResult Put(int id, DrugDto drugDto)
         {
-            var drug = new DrugDetail
+            try
             {
-                DrugName = drugDto.DrugName,
-                Quantity = drugDto.Quantity,
-                Price = drugDto.Price,
-                SupplierId = drugDto.SupplierId,
-            };
+                var drug = new DrugDetail
+                {
+                    DrugId = drugDto.DrugId,
+                    DrugName = drugDto.DrugName,
+                    Quantity = drugDto.Quantity,
+                    ExpiryDate = drugDto.ExpiryDate,
+                    Price = drugDto.Price,
+                    SupplierId = drugDto.SupplierId,
+                };
 
-            _drugRepository.UpdateDrug(drug);
-            return new OkResult();
+                _drugRepository.UpdateDrug(drug);
+                return new OkResult();
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            
 
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _drugRepository.DeleteDrug(id);
-            return Ok();
+            try
+            {
+                _drugRepository.DeleteDrug(id);
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+           
         }
     }
 }

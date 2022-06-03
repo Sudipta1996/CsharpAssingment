@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
-namespace PharmacyManagementSystem.Dto
+namespace pharmacyManagementWebApiservice.Dto
 {
     public class RegisterDto
     {

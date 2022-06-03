@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PharmacyManagementSystem.Models;
-using PharmacyManagementSystem.Repository;
+using pharmacyManagementWebApiservice.Models;
+using pharmacyManagementWebApiservice.Repository;
 using System.Collections.Generic;
 using System.Linq;
 

@@ -1,4 +1,4 @@
-﻿using PharmacyManagementSystem.Models;
+﻿using pharmacyManagementWebApiservice.Models;
 
 namespace pharmacyManagementWebApiservice.Dto
 {

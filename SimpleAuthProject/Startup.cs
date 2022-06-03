@@ -7,9 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using PharmacyManagementSystem.Helper;
-using PharmacyManagementSystem.Models;
-using PharmacyManagementSystem.Repository;
+using pharmacyManagementWebApiservice.Helper;
+using pharmacyManagementWebApiservice.Models;
+using pharmacyManagementWebApiservice.Repository;
 using pharmacyManagementWebApiservice.Repository;
 using System;
 using System.Collections.Generic;
@@ -37,7 +37,7 @@ namespace SimpleAuthProject
             services.AddDbContext<PharmacyManagementContext>(options => options.UseSqlServer(Configuration["ConnectionString:DefaultConnection"]));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ISuplierRepository, SupplierRepository>();
-            services.AddScoped<IDrugRepository, DrugRepository>();
+            services.AddScoped<IDrugRepository<DrugDetail>, DrugRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrdersRepostiory, OrdersRepository>();
             services.AddScoped<JwtService>();
@@ -58,6 +58,12 @@ namespace SimpleAuthProject
             }
 
             app.UseRouting();
+            app.UseCors(options => options
+            .WithOrigins(new[] { "http://localhost:3000" })
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()
+            );
 
             app.UseAuthorization();
 

@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PharmacyManagementSystem.Models;
+using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Dto;
 using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Repository;
+using System;
 
 namespace pharmacyManagementWebApiservice.Controllers
 {
@@ -20,34 +21,62 @@ namespace pharmacyManagementWebApiservice.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var order = _ordersRepository.GetAll();
-            return Ok(order);
+            try
+            {
+                var order = _ordersRepository.GetAll();
+                return Ok(order);
+
+            }
+            catch (System.Exception)
+            {
+
+                return BadRequest();
+            }
+            
         }
         [HttpPost]
         public IActionResult Post(AddOrders addOrder)
         {
-            var order = new Order
+            try
             {
-                OrderId = addOrder.OrderId,
-                UserId = addOrder.UserId,
-            };
-            var newOrder = _ordersRepository.Create(order);
-            return Created("Sucess", newOrder);
+                var order = new Order
+                {
+                    OrderId = addOrder.OrderId,
+                    UserId = addOrder.UserId,
+                };
+                var newOrder = _ordersRepository.Create(order);
+                return Created("Sucess", newOrder);
+            }
+            catch (System.Exception)
+            {
+
+                return BadRequest();
+            }
+            
 
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("{UserId}")]
+        public IActionResult Get(int UserId)
         {
-            if (id <= 0)
+            try
             {
-                throw new InvalidException("Invalid Id");
+                if (UserId <= 0)
+                {
+                    throw new ArgumentException();
+                }
+                var orders = _ordersRepository.GetOrders(UserId);
+                if (orders == null)
+                {
+                    throw new ArgumentException();
+                }
+                return new OkObjectResult(orders);
             }
-            var order = _ordersRepository.GetOrders(id);
-            if (order == null)
+            catch (System.Exception)
             {
-                throw new InvalidException("Invalid Id");
+                return BadRequest();
+
             }
-            return new OkObjectResult(order);
+           
         }
     }
 

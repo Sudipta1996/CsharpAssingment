@@ -3,7 +3,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
-namespace PharmacyManagementSystem.Helper
+namespace pharmacyManagementWebApiservice.Helper
 {
     public class JwtService
     {

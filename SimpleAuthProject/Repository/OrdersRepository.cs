@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PharmacyManagementSystem.Models;
+using pharmacyManagementWebApiservice.Models;
 using System.Collections.Generic;
 using System.Linq;
 

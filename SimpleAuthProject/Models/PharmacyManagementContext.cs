@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace PharmacyManagementSystem.Models
+namespace pharmacyManagementWebApiservice.Models
 {
     public partial class PharmacyManagementContext : DbContext
     {
@@ -18,12 +18,11 @@ namespace PharmacyManagementSystem.Models
         }
 
         public virtual DbSet<DrugDetail> DrugDetails { get; set; }
+        public virtual DbSet<NewTab> NewTabs { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<SupplierDetail> SupplierDetails { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
-
-       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -53,7 +52,7 @@ namespace PharmacyManagementSystem.Models
 
                 entity.Property(e => e.DrugName).HasMaxLength(50);
 
-                entity.Property(e => e.ExpiryDate).HasColumnType("date");
+                entity.Property(e => e.ExpiryDate).HasColumnType("datetime");
 
                 entity.Property(e => e.ModifedBy)
                     .HasColumnType("datetime")
@@ -71,38 +70,50 @@ namespace PharmacyManagementSystem.Models
                     .HasConstraintName("FK__DrugDetai__Suppl__276EDEB3");
             });
 
-            modelBuilder.Entity<Order>(entity =>
+            modelBuilder.Entity<NewTab>(entity =>
             {
                 entity.HasNoKey();
 
+                entity.ToTable("New_tab");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(10)
+                    .HasColumnName("name")
+                    .IsFixedLength(true);
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.HasKey(e => new { e.OrderId, e.UserId })
+                    .HasName("PK__Orders__12E8D70B5FB09614");
+
                 entity.Property(e => e.CreatedBy)
-                    .HasColumnType("datetime")
-                    .HasColumnName("created_by")
-                    .HasDefaultValueSql("(getdate())");
+                    .HasColumnType("date")
+                    .HasColumnName("created_by");
 
                 entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("created_date")
-                    .HasDefaultValueSql("(getdate())");
+                    .HasColumnType("date")
+                    .HasColumnName("created_date");
 
                 entity.Property(e => e.ModifedBy)
-                    .HasColumnType("datetime")
+                    .HasColumnType("date")
                     .HasColumnName("modifed_by");
 
                 entity.Property(e => e.ModifedDate)
-                    .HasColumnType("datetime")
+                    .HasColumnType("date")
                     .HasColumnName("modifed_date");
 
                 entity.HasOne(d => d.OrderNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__Orders__OrderId__2C3393D0");
-                entity.HasKey(e => new { e.OrderId,e.UserId });
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Orders__OrderId__5BE2A6F2");
 
                 entity.HasOne(d => d.User)
-                    .WithMany()
+                    .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Orders__UserId__2D27B809");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Orders__UserId__5CD6CB2B");
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
@@ -206,8 +217,6 @@ namespace PharmacyManagementSystem.Models
                 entity.Property(e => e.UserName).HasMaxLength(50);
 
                 entity.Property(e => e.UserPassword).HasMaxLength(255);
-
-               
             });
 
             OnModelCreatingPartial(modelBuilder);

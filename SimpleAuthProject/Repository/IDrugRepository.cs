@@ -1,17 +1,17 @@
-﻿using PharmacyManagementSystem.Models;
+﻿using pharmacyManagementWebApiservice.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace pharmacyManagementWebApiservice.Repository
 {
-    public interface IDrugRepository
+    public interface IDrugRepository<T> where T : class,new()
     {
-        DrugDetail Create(DrugDetail drugDetail);
-        Task<IEnumerable<DrugDetail>> GetAll();
+        T Create(T drugDetails);
+        Task<IEnumerable<T>> GetAll();
 
-        DrugDetail GetDrugName(string drugName);
-        DrugDetail GetDrug(int id);
+        T GetDrugName(string drugName);
+        T GetDrug(int id);
         void DeleteDrug(int id);
-        void UpdateDrug(DrugDetail drugDetail);
+        void UpdateDrug(T drugDetails);
     }
 }

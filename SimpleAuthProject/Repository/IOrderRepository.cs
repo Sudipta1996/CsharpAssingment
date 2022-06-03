@@ -1,4 +1,4 @@
-﻿using PharmacyManagementSystem.Models;
+﻿using pharmacyManagementWebApiservice.Models;
 using System.Collections.Generic;
 
 namespace pharmacyManagementWebApiservice.Repository

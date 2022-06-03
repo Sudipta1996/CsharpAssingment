@@ -3,21 +3,23 @@ import { Redirect } from 'react-router-dom';
 
 
  const  Register=()=> {
-      const [name, setName] = useState();
+      const [UserName, setName] = useState();
       const [email, setEmail] = useState();
       const [contact, setContact] = useState();
-      const [address, setAddress] = useState();
-      const [password, setPassword] = useState();
+      const [UserAddress, setAddress] = useState();
+      const [UserPassword, setPassword] = useState();
       const [redirect,setRedirect] =useState(false);
     const submit = async (e) =>{
         e.preventDefault();
-         await fetch('http://localhost:62078/api/Auth/Register',{
+         await fetch('http://localhost:12831/api/Auth/Register',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
-                name,
+                UserName,
                 email,
-                password
+                contact,
+                UserAddress,
+                UserPassword
             })
         });
         

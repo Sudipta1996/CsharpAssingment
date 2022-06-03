@@ -1,8 +1,8 @@
-﻿using PharmacyManagementSystem.Models;
+﻿using pharmacyManagementWebApiservice.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PharmacyManagementSystem.Repository
+namespace pharmacyManagementWebApiservice.Repository
 {
     public class UserRepository : IUserRepository
     {

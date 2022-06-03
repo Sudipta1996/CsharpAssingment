@@ -1,4 +1,4 @@
-﻿namespace PharmacyManagementSystem.Dto
+﻿namespace pharmacyManagementWebApiservice.Dto
 {
     public class LoginDto
     {

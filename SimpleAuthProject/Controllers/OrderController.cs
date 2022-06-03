@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PharmacyManagementSystem.Models;
+using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Dto;
 using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Repository;
+using System;
 
 namespace pharmacyManagementWebApiservice.Controllers
 {
@@ -20,57 +21,103 @@ namespace pharmacyManagementWebApiservice.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var order = _orderRepository.GetAll();
-            return Ok(order);
+            try
+            {
+                var order = _orderRepository.GetAll();
+                return Ok(order);
+            }
+            catch (System.Exception)
+            {
+
+                return BadRequest();
+            }
+            
         }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            if (id <= 0)
+            try
             {
-                throw new InvalidException("Invalid Id");
+                if (id <= 0)
+                {
+                    throw new ArgumentException();
+                }
+                var supplier = _orderRepository.GetOrder(id);
+                if (supplier == null)
+                {
+                    throw new ArgumentException();
+                }
+                return new OkObjectResult(supplier);
+
             }
-            var supplier = _orderRepository.GetOrder(id);
-            if (supplier == null)
+            catch (System.Exception)
             {
-                throw new InvalidException("Invalid Id");
+                return BadRequest();
+
             }
-            return new OkObjectResult(supplier);
+            
         }
         [HttpPost]
         public IActionResult Post(OrderDto orderDto)
         {
-            var order = new OrderDetail
+            try
             {
-                DrugId = orderDto.DrugId,
-                Quantity = orderDto.Quantity,
-                TotalAmount = orderDto.TotalAmount,
-                OrderPrice = orderDto.OrderPrice,
-            };
-            var newOrder = _orderRepository.Create(order);
-            return Created("Sucess", newOrder);
+                var order = new OrderDetail
+                {
+                    DrugId = orderDto.DrugId,
+                    Quantity = orderDto.Quantity,
+                    TotalAmount = orderDto.TotalAmount,
+                    OrderPrice = orderDto.OrderPrice,
+                };
+                var newOrder = _orderRepository.Create(order);
+                return Created("Sucess", newOrder);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            
 
         }
         [HttpPut("{id}")]
         public IActionResult Put(int id, OrderDto orderDto)
         {
-            var order = new OrderDetail
+            try
             {
-                DrugId = orderDto.DrugId,
-                Quantity = orderDto.Quantity,
-                TotalAmount = orderDto.TotalAmount,
-                OrderPrice = orderDto.OrderPrice,
-            };
-            _orderRepository.UpdateOrder(order);
-            return new OkResult();
+                var order = new OrderDetail
+                {
+                    DrugId = orderDto.DrugId,
+                    Quantity = orderDto.Quantity,
+                    TotalAmount = orderDto.TotalAmount,
+                    OrderPrice = orderDto.OrderPrice,
+                };
+                _orderRepository.UpdateOrder(order);
+                return new OkResult();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+
+            }
+            
 
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _orderRepository.DeleteOrder(id);
-            return Ok();
+            try
+            {
+                _orderRepository.DeleteOrder(id);
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            
         }
 
     }
