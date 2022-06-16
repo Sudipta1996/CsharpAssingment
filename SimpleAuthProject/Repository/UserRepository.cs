@@ -8,10 +8,11 @@ namespace pharmacyManagementWebApiservice.Repository
     {
         private readonly PharmacyManagementContext _context;
 
-        public UserRepository(PharmacyManagementContext context)
+        public UserRepository(PharmacyManagementContext context)//constructor dependency injection//
         {
             _context = context;
         }
+        #region CreateUser
         public UserDetail Create(UserDetail user)
         {
             _context.UserDetails.Add(user);
@@ -19,18 +20,19 @@ namespace pharmacyManagementWebApiservice.Repository
 
             return user;
         }
+        #endregion
+        #region Getall
         public IEnumerable<UserDetail> GetAll()
         {
             return _context.UserDetails;
         }
-
-
-        public UserDetail GetByEmail(string email)
+        #endregion
+        public UserDetail GetByEmail(string email)//get email by id//
         {
             return _context.UserDetails.FirstOrDefault(x => x.Email == email);
         }
 
-        public UserDetail GetById(int id)
+        public UserDetail GetById(int id)//get by id//
         {
             return _context.UserDetails.FirstOrDefault(u => u.UserId == id);
         }

@@ -22,6 +22,7 @@
         "formik": "^2.2.9",
         "js-cookie": "^3.0.1",
         "material-avatar": "^0.3.5",
+        "material-ui-password-field": "^2.1.2",
         "moment": "^2.29.3",
         "react": "^18.1.0",
         "react-dom": "^18.1.0",

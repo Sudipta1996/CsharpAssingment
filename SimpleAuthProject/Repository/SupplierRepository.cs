@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using pharmacyManagementWebApiservice.Models;
-using pharmacyManagementWebApiservice.Repository;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,10 +9,11 @@ namespace pharmacyManagementWebApiservice.Repository
     {
         private readonly PharmacyManagementContext _context;
 
-        public SupplierRepository(PharmacyManagementContext context)
+        public SupplierRepository(PharmacyManagementContext context)//Constructor Dependency Injection//
         {
             _context = context;
         }
+        #region Create
         public SupplierDetail  Create(SupplierDetail supplierDetail)
         {
             _context.SupplierDetails.Add(supplierDetail);
@@ -21,18 +21,20 @@ namespace pharmacyManagementWebApiservice.Repository
 
             return supplierDetail;
         }
+        #endregion
+        #region DeleteSupplier
         public void DeleteSupplier(int id)
         {
             SupplierDetail supplier = GetSupplier(id);
             _context.Remove(supplier);
             _context.SaveChanges();
         }
-
-        public IEnumerable<SupplierDetail> GetAll()
+        #endregion
+        public IEnumerable<SupplierDetail> GetAll()//get all details//
         {
             return _context.SupplierDetails.Include(drug => drug.DrugDetails).ToList();
         }
-        public SupplierDetail GetSupplier(int id)
+        public SupplierDetail GetSupplier(int id)//get supplier by id//
         {
             var supplier =  _context.SupplierDetails.Where(u => u.SupplierId == id).Include(c => c.DrugDetails).FirstOrDefault();
             return supplier;
@@ -43,7 +45,7 @@ namespace pharmacyManagementWebApiservice.Repository
         //var products = await _context.Products.Where(p => p.UserId == userId).Include(c => c.Orders)
         //        .ToListAsync();
         //    return products;
-        public void UpdateSupplier(SupplierDetail supplierDetail)
+        public void UpdateSupplier(SupplierDetail supplierDetail)//update supplier//
         {
             _context.Entry(supplierDetail).State = EntityState.Modified;
             _context.SaveChanges();

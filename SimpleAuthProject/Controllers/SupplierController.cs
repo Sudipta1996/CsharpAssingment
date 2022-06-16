@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Repository;
 using pharmacyManagementWebApiservice.Dto;
-using pharmacyManagementWebApiservice.Models;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace pharmacyManagementWebApiservice.Controllers
 {
@@ -19,6 +17,7 @@ namespace pharmacyManagementWebApiservice.Controllers
         {
             _suplierRepository = suplierRepository;
         }
+        #region supplierDetails
         [HttpGet]
         public IActionResult Get()
         {
@@ -34,10 +33,8 @@ namespace pharmacyManagementWebApiservice.Controllers
                 return BadRequest();
             }
             
-            
-
-
         }
+        #endregion
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

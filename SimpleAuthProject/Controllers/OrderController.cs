@@ -18,6 +18,7 @@ namespace pharmacyManagementWebApiservice.Controllers
         {
             _orderRepository = orderRepository;
         }
+        #region getOrder
         [HttpGet]
         public IActionResult Get()
         {
@@ -33,6 +34,8 @@ namespace pharmacyManagementWebApiservice.Controllers
             }
             
         }
+        #endregion getOrder
+        #region getbyidOrder
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -57,6 +60,8 @@ namespace pharmacyManagementWebApiservice.Controllers
             }
             
         }
+        #endregion getbyidOrder
+        #region PostOrder
         [HttpPost]
         public IActionResult Post(OrderDto orderDto)
         {
@@ -78,8 +83,8 @@ namespace pharmacyManagementWebApiservice.Controllers
                 return BadRequest();
             }
             
-
         }
+        #endregion PostOrder
         [HttpPut("{id}")]
         public IActionResult Put(int id, OrderDto orderDto)
         {

@@ -3,17 +3,14 @@ import './App.css';
 import Login from './Login';
 import Navigation from './Navigation';
 import Home  from './Home';
-import Register from './Register';
 import {BrowserRouter, Route, Switch,Redirect} from "react-router-dom";
 import Landing from './Landing';
 import Newregister from './Newregister';
+import Register from './Register';
 import AdminLogin from './AdminLogin';
 import Dashboard from './Dashboard';
 import Logout from './Logout';
 import Addsupplier from './Addsupplier';
-import Viewdetails from './Viewdetails';
-import Details from './Details';
-import Delete from './Delete';
 import Editsupplier from './Editsupplier';
 import SupplierDetails from './SupplierDetails';
 import AddDrugs from './AddDrugs';
@@ -22,6 +19,8 @@ import Editdrugs from './Editdrugs';
 import Orders from './Orders';
 import UserOrders from './UserOrders';
 import VerifyOrder from './VerifyOrder';
+import Verify from './Verify';
+import About from './About';
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -35,8 +34,9 @@ function App() {
        <Route path='/logout' component={Logout}/>
        <Route path='/adminlogin' component={AdminLogin}/>
        <Route path='/dashboard' component={Dashboard}/>
+       <Route path='/about' component={About}/>
        <Route path='/home' component={Home}/>
-       <Route path='/newregister' component={Newregister}/>
+       <Route path='/newregister' component={Register}/>
        <Route path='/addsupplier' component={Addsupplier}/>
        <Route path='/adddrugs' component={AddDrugs}/>
        <Route path='/details' component={SupplierDetails}/>
@@ -46,6 +46,7 @@ function App() {
        <Route path='/orders/:drugId/' component={Orders} /> 
        <Route path='/userorders/:supplierId/' component={UserOrders} /> 
        <Route path='/verifyOrder/' component={VerifyOrder} /> 
+       <Route path='/verify/:orderId' component={Verify} /> 
        </Switch>
   </div>
   </BrowserRouter>

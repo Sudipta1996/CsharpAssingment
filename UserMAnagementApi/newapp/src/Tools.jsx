@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import {Link} from "react-router-dom";
 
 
 const styles = {
@@ -30,7 +31,8 @@ function SimpleAppBar(props) {
       <AppBar position="static">
         <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.typography}>
-           <center><strong>User Dashboard</strong></center>
+            <Link to="/"><button class="btn btn-primary">Back</button></Link>
+           <center><strong>Admin Dashboard</strong></center>
           </Typography>
         </Toolbar>
       </AppBar>

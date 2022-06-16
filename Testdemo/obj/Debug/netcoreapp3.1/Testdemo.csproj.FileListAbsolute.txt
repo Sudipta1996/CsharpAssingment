@@ -1,0 +1,14 @@
+C:\Users\hp\source\repos\Testdemo\bin\Debug\netcoreapp3.1\Testdemo.exe
+C:\Users\hp\source\repos\Testdemo\bin\Debug\netcoreapp3.1\Testdemo.deps.json
+C:\Users\hp\source\repos\Testdemo\bin\Debug\netcoreapp3.1\Testdemo.runtimeconfig.json
+C:\Users\hp\source\repos\Testdemo\bin\Debug\netcoreapp3.1\Testdemo.runtimeconfig.dev.json
+C:\Users\hp\source\repos\Testdemo\bin\Debug\netcoreapp3.1\Testdemo.dll
+C:\Users\hp\source\repos\Testdemo\bin\Debug\netcoreapp3.1\Testdemo.pdb
+C:\Users\hp\source\repos\Testdemo\obj\Debug\netcoreapp3.1\Testdemo.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\Testdemo\obj\Debug\netcoreapp3.1\Testdemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\Testdemo\obj\Debug\netcoreapp3.1\Testdemo.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\Testdemo\obj\Debug\netcoreapp3.1\Testdemo.AssemblyInfo.cs
+C:\Users\hp\source\repos\Testdemo\obj\Debug\netcoreapp3.1\Testdemo.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\Testdemo\obj\Debug\netcoreapp3.1\Testdemo.dll
+C:\Users\hp\source\repos\Testdemo\obj\Debug\netcoreapp3.1\Testdemo.pdb
+C:\Users\hp\source\repos\Testdemo\obj\Debug\netcoreapp3.1\Testdemo.genruntimeconfig.cache

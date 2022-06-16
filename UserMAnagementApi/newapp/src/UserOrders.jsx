@@ -9,6 +9,7 @@ function OrderList(props) {
     const history=useHistory();
    const [data, setData] = useState([]);  
   const [userName,setName] = useState('');
+  const [userId,setId] = useState('');
   
 
   useEffect(() => {  
@@ -34,18 +35,14 @@ function OrderList(props) {
                  console.log(content.userName);
                  console.log(content.userId);
                  setName(content.userName);
+                 setId(content.userId)
              }
         )();
     },[]);
-  const deleteorder = (orderId) => {  
-    axios.delete('http://localhost:12831/api/Order/' +orderId)  
-      .then((result) => {  
-        props.history.push('/dashboard')  
-      });  
-  };  
+ 
   const placeorder = (orderId) => {  
-    props.history.push({  
-      pathname: '/verifyOrder/' + orderId
+    props.history.push({ 
+      pathname: '/verify/' + orderId
     });  
   };  
   
@@ -53,7 +50,7 @@ function OrderList(props) {
     <div class="bg_image">
    <Toolbaradmin/>
         <div class="container"> 
-        <h2 class="text-primary">Order Details: {userName}</h2>
+        <h2 class="text-primary">Order Details: {userName}{userId}</h2>
       <Row>  
         <Col>  
            
@@ -81,10 +78,8 @@ function OrderList(props) {
                              <td>{emp.drug.drugName}</td>
                              <td>{emp.drug.expiryDate}</td>
                              <td>
-                             <button className="btn btn-danger" onClick={() => { placeorder(emp.orderId) }}>Confirm</button> 
-                            <button className="btn btn-danger" onClick={() => { deleteorder(emp.orderId) }}>Delete</button> 
-                            
-                             </td>
+                             <button className="btn btn-success" onClick={() => { placeorder(emp.orderId)}}>Confirm</button> 
+                              </td>
                            </tr>
                      )}    
                 </tbody>  

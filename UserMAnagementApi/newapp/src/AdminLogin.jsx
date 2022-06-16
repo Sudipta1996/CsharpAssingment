@@ -3,10 +3,7 @@ import React,{useState,useEffect} from 'react'
 import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import axios from "axios";
 import {useHistory} from "react-router-dom";
-import Dashboard from "./Dashboard";
-import Toolbar from './Toolbar';
 import Foot from './Foot';
 import Tool from './Tools'
 import logo from "./admin.jpg"
@@ -14,9 +11,9 @@ import logo from "./admin.jpg"
 const AdminLogin=()=>{
     const history=useHistory()
     const[state,setState]=useState({
-        email:"rashmi@gmail.com",
+        email:"sud@gmail.com",
         password:"1234",
-        email1:"rashmi@gmail.com",
+        email1:"sud@gmail.com",
         password1:"1234",
     })
     

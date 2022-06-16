@@ -10,13 +10,14 @@ namespace pharmacyManagementWebApiservice.Repository
     {
         private readonly PharmacyManagementContext _context;
 
+        //dependencyInjection//
         public DrugRepository(PharmacyManagementContext context)
         {
             _context = context;
         }
         public DrugDetail Create(DrugDetail drugDetail)
         {
-            _context.DrugDetails.Add(drugDetail);
+            _context.DrugDetails.Add(drugDetail);//entity state//
             _context.SaveChanges();
 
             return drugDetail;

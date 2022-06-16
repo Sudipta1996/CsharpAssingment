@@ -1,20 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using pharmacyManagementWebApiservice.Helper;
 using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Repository;
-using pharmacyManagementWebApiservice.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SimpleAuthProject
 {
@@ -35,12 +29,23 @@ namespace SimpleAuthProject
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
             services.AddDbContext<PharmacyManagementContext>(options => options.UseSqlServer(Configuration["ConnectionString:DefaultConnection"]));
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();//is a type of specified userrepo//
             services.AddScoped<ISuplierRepository, SupplierRepository>();
+            //services.AddSession(option =>
+            //{
+            //    option.IdleTimeout = TimeSpan.FromMinutes(30);
+            //});
             services.AddScoped<IDrugRepository<DrugDetail>, DrugRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrdersRepostiory, OrdersRepository>();
             services.AddScoped<JwtService>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("LocalPolicy", policy =>
+                {
+                    policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+                });
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApiCore", Version = "v1" });
@@ -58,14 +63,12 @@ namespace SimpleAuthProject
             }
 
             app.UseRouting();
-            app.UseCors(options => options
-            .WithOrigins(new[] { "http://localhost:3000" })
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials()
-            );
+            //global cor policy//
+            app.UseCors("LocalPolicy");
+            
+            
 
-            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

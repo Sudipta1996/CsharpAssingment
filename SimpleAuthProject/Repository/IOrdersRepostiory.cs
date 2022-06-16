@@ -8,7 +8,6 @@ namespace pharmacyManagementWebApiservice.Repository
     {
         IEnumerable<Order> GetAll();
         Order Create(Order order);
-
         IEnumerable<Order> GetOrders(int id);
     }
 }

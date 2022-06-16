@@ -9,7 +9,7 @@ const Logout = () =>{
   
 
     const logout = async()=>{
-        await fetch('http://localhost:62078/api/Auth/logout',{
+        await fetch('http://localhost:12831/api/Auth/logout',{
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

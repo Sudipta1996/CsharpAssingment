@@ -19,8 +19,6 @@ function VerifyOrder(props) {
     
   }); 
   
-  
-
   useEffect(() => {  
     const GetData = async () => {  
       const result = await axios('http://localhost:12831/api/Orders');  
@@ -30,7 +28,9 @@ function VerifyOrder(props) {
     GetData();  
   }, []);  
   console.log(data)
-  
+  const submit=(e)=>{
+    alert(`successfully Order Placed`)  
+  }
   
   return (  
     <div class="bg_image">
@@ -62,7 +62,7 @@ function VerifyOrder(props) {
                              <td>{emp.user.userAddress}</td>
                              <td>{emp.user.email}</td>
                              <td>
-                            <button className="btn btn-danger">PLace Order</button> 
+                            <button className="btn btn-danger" onClick={submit} >PLace Order</button> 
          
                              </td>
                            </tr>

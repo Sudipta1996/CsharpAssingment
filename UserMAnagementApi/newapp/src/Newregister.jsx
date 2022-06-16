@@ -13,41 +13,11 @@ import {
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import logo from "./doctorlogo.png"
+import Tooluser from "./Tooluser";
 
-const AddDoctor=()=>{
+const Newregister=()=>{
    const history=useHistory();
-//   if(localStorage.getItem("admin")==0)
-//   {
-//     history.push("/")
-//   }
 
-//   const[state1,setState1]=useState({
-//     doctor:[]
-//   })
-//  useEffect(()=>{
-//     axios.get("http://localhost:4000/doctor").then(res=>{
-//       const doctors=res.data.map(data=>({
-//         "regno":data.regno
-//       }))
-//       setState1({
-//         ...state1,
-//         doctor:doctors
-//       })
-//     })
-//  })
-
-
-
-  // const paperStyle = {
-  //   padding: 20,
-  //   height: "70vh",
-  //   width: 600,
-  //   margin: "20px auto",
-    
-  // };
-  
-  // const avatarStyle = { backgroundColor: "#1bbd7e" };
-  // const btnstyle = { margin: "30px 0" };
     const[state,setState]=useState({
       UserName:"",
         Email:"",
@@ -65,7 +35,7 @@ const AddDoctor=()=>{
     const submit=()=>{
 
       
-        if(state.UserName && state.Email && state.Contact && state.Contact && state.UserPassword)
+        if(state.UserName && state.Email && state.Contact && state.UserAddress && state.UserPassword)
         {
          axios.post("http://localhost:12831/api/Auth/Register",{
            UserName:state.UserName,
@@ -110,7 +80,7 @@ const AddDoctor=()=>{
         
     <div class="bg_image">
       <div class="float-container">
-        <Tool/>
+        <Tooluser/>
       <Grid>
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">
@@ -181,33 +151,5 @@ const AddDoctor=()=>{
     );
 }
 
-export default AddDoctor;
-{/* <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-                    <h2>Doctor Sign In</h2>
-                </Grid>
-                <TextField label='Email' placeholder='Enter Email' fullWidth required name="email"
-                       value={state.email}
-                       onChange={change}/>
-                <TextField label='Password' placeholder='Enter password' type='password' fullWidth required name="password"
-                       value={state.password}
-                       onChange={change}
-                        />
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    }
-                    label="Remember me"
-                 />
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth onClick = {submit}>Sign in</Button>
-                
-                <img src={logo} alt="" className="doctor" />
-            </Paper>
-            
-            </Grid> */}
-            
+export default Newregister;
+

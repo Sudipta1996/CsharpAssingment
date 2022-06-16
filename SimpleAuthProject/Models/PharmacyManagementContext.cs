@@ -18,7 +18,7 @@ namespace pharmacyManagementWebApiservice.Models
         }
 
         public virtual DbSet<DrugDetail> DrugDetails { get; set; }
-        public virtual DbSet<NewTab> NewTabs { get; set; }
+        //public virtual DbSet<NewTab> NewTabs { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<SupplierDetail> SupplierDetails { get; set; }
@@ -29,7 +29,7 @@ namespace pharmacyManagementWebApiservice.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=LAPTOP-AGNSPA8J\\SQLEXPRESS;Database=PharmacyManagement;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=tcp:sudiptaserver01.database.windows.net,1433;Initial Catalog=PharmacyManagement;Persist Security Info=False;User ID=WhizlabAdmin;Password=Whizlab_123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
@@ -70,17 +70,17 @@ namespace pharmacyManagementWebApiservice.Models
                     .HasConstraintName("FK__DrugDetai__Suppl__276EDEB3");
             });
 
-            modelBuilder.Entity<NewTab>(entity =>
-            {
-                entity.HasNoKey();
+            //modelBuilder.Entity<NewTab>(entity =>
+            //{
+            //    entity.HasNoKey();
 
-                entity.ToTable("New_tab");
+            //    entity.ToTable("New_tab");
 
-                entity.Property(e => e.Name)
-                    .HasMaxLength(10)
-                    .HasColumnName("name")
-                    .IsFixedLength(true);
-            });
+            //    entity.Property(e => e.Name)
+            //        .HasMaxLength(10)
+            //        .HasColumnName("name")
+            //        .IsFixedLength(true);
+            //});
 
             modelBuilder.Entity<Order>(entity =>
             {

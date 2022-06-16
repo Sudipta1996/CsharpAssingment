@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import logo from "./doctorlogo.png";
-import Tool from "./Tools"
+import Tooluser from "./Tooluser"
 import Foot from './Foot'
 
  const Login=(props)=> {
@@ -45,7 +45,7 @@ import Foot from './Foot'
     return (
     <div class="bg_image">
       <div class="float-container">
-          <Tool/>
+          <Tooluser/>
      <Grid>
      <Paper elevation={10} style={paperStyle}>
          <Grid align='center'>

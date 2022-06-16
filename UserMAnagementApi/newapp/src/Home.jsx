@@ -9,9 +9,6 @@ import axios from 'axios';
 import Tools from './Tools';
 import Toolbars from './Toolbars';
 import Foot from './Foot';
-import { render } from 'react-dom';
-import Pricevalue from './Pricevalue';
-import Totalvalue from './Totalvalue';
 import {Link} from "react-router-dom";
 
 

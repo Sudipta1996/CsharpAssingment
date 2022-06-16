@@ -19,6 +19,7 @@ namespace pharmacyManagementWebApiservice.Controllers
             _ordersRepository = orderRepository;
         }
         [HttpGet]
+        #region GetOrders
         public IActionResult Get()
         {
             try
@@ -31,10 +32,11 @@ namespace pharmacyManagementWebApiservice.Controllers
             {
 
                 return BadRequest();
-            }
-            
+            }    
         }
+        #endregion        
         [HttpPost]
+        #region Addorder
         public IActionResult Post(AddOrders addOrder)
         {
             try
@@ -52,9 +54,8 @@ namespace pharmacyManagementWebApiservice.Controllers
 
                 return BadRequest();
             }
-            
-
         }
+        #endregion
         [HttpGet("{UserId}")]
         public IActionResult Get(int UserId)
         {

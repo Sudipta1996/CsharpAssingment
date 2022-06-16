@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Dto;
-using pharmacyManagementWebApiservice.Models;
 using pharmacyManagementWebApiservice.Repository;
 using System.Threading.Tasks;
 using System;
@@ -14,11 +13,12 @@ namespace pharmacyManagementWebApiservice.Controllers
     {
         private readonly IDrugRepository<DrugDetail> _drugRepository;
 
-        public DrugController(IDrugRepository<DrugDetail> drugRepository)
+        public DrugController(IDrugRepository<DrugDetail> drugRepository)//inject Iuserrepository//
         {
             _drugRepository = drugRepository;
         }
         [HttpGet]
+        #region Getdrug
         public async Task<ActionResult> Get()
         {
             try
@@ -31,10 +31,11 @@ namespace pharmacyManagementWebApiservice.Controllers
 
                 return BadRequest();
             }
-            
-
         }
+        #endregion
+        
         [HttpGet("{id}")]
+        #region getDrugid
         public IActionResult Get(int id)
         {
             try
@@ -57,6 +58,8 @@ namespace pharmacyManagementWebApiservice.Controllers
             }
             
         }
+        #endregion
+        #region Drugname
         [HttpGet("Drugs/{drugName}")]
         public IActionResult GetDrugName(string drugName)
         {
@@ -72,6 +75,7 @@ namespace pharmacyManagementWebApiservice.Controllers
             }
             
         }
+        #endregion
         [HttpPost]
         public IActionResult Post(DrugDto drugDto)
         {

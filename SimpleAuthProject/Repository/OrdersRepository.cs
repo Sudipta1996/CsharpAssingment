@@ -26,9 +26,9 @@ namespace pharmacyManagementWebApiservice.Repository
             return _context.Orders.Include(ordr => ordr.User).ToList();
             //return _context.SupplierDetails.Include(drug => drug.DrugDetails).ToList();
         }
-
-
-        public IEnumerable<Order> GetOrders(int id)
+        
+        
+    public IEnumerable<Order> GetOrders(int id)
         {
             var order = _context.Orders.Where(u => u.UserId == id).ToList();
             return order;
