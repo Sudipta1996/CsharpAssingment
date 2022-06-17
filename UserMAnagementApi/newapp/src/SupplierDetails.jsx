@@ -9,14 +9,14 @@ function SupplierList(props) {
   
   useEffect(() => {  
     const GetData = async () => {  
-      const result = await axios('http://localhost:12831/api/Supplier');  
+      const result = await axios('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Supplier');  
       setData(result.data);  
     };  
   
     GetData();  
   }, []);  
   const deleteeployee = (supplierId) => {  
-    axios.delete('http://localhost:12831/api/Supplier/' +supplierId)  
+    axios.delete('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Supplier/' +supplierId)  
       .then((result) => {  
         props.history.push('/dashboard')  
       });  

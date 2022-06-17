@@ -15,7 +15,7 @@ function Editemployee(props) {
             supplierId:''
 
          });  
-        const Url = "http://localhost:12831/api/Drug/" +props.match.params.drugId;  
+        const Url = "https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Drug/" +props.match.params.drugId;  
         
         useEffect(() => {  
           const GetData = async () => {  

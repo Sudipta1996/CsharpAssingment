@@ -12,7 +12,7 @@ function Editsupplier(props) {
             supplierContact: '',
              supplierEmail: ''
          });  
-        const Url = "http://localhost:12831/api/Supplier/" +props.match.params.supplierId;  
+        const Url = "https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Supplier/" +props.match.params.supplierId;  
         
         useEffect(() => {  
           const GetData = async () => {  
@@ -27,7 +27,7 @@ function Editsupplier(props) {
         const UpdateSupplier = (e) => {  
           e.preventDefault();  
           const data = {supplierId:supplier.supplierId, supplierName:supplier.supplierName, supplierContact: supplier.supplierContact, supplierEmail: supplier.supplierEmail};  
-          axios.put('http://localhost:12831/api/Supplier/'+props.match.params.supplierId, data)  
+          axios.put('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Supplier/'+props.match.params.supplierId, data)  
             .then((result) => {  
               props.history.push('/details')  
             });  

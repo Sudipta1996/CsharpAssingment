@@ -9,14 +9,14 @@ function DrugList(props) {
   
   useEffect(() => {  
     const GetData = async () => {  
-      const result = await axios('http://localhost:12831/api/Drug');  
+      const result = await axios('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Drug');  
       setData(result.data);  
     };  
   
     GetData();  
   }, []);  
   const deletedrug = (drugId) => {  
-    axios.delete('http://localhost:12831/api/Drug/' +drugId)  
+    axios.delete('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Drug/' +drugId)  
       .then((result) => {  
         props.history.push('/dashboard')  
       });  

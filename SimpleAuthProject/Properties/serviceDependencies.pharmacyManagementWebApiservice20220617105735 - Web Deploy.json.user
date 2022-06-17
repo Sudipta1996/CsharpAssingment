@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "apis1": {
+      "restored": true,
+      "restoreTime": "2022-06-17T06:14:43.6405284Z"
+    },
+    "identityapp1": {
+      "restored": true,
+      "restoreTime": "2022-06-17T07:59:13.6418307Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2022-06-17T06:22:36.5923405Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "92e5802d-7a17-43ca-a9c0-1fd56106ec0b"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "AZ-900"
+    },
+    "apis1.resourceGroupName": {
+      "Name": "apis1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "AZ-900"
+    },
+    "apis1.subscriptionId": {
+      "Name": "apis1.subscriptionId",
+      "Type": "subscription",
+      "Value": "92e5802d-7a17-43ca-a9c0-1fd56106ec0b"
+    }
+  }
+}

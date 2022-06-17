@@ -36,7 +36,7 @@ const Addsupplier=()=>{
       
         if(state.SupplierName && state.SupplierEmail && state.SupplierContact)
         {
-         axios.post("http://localhost:12831/api/Supplier",{
+         axios.post("https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Supplier",{
            SupplierName:state.SupplierName,
            SupplierContact:state.SupplierContact,
            SupplierEmail:state.SupplierEmail

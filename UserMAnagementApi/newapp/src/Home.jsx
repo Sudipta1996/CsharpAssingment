@@ -53,7 +53,7 @@ const Home = () =>{
   useEffect(() =>{
     (
     async () =>{
-      const response =  await fetch('http://localhost:12831/api/Auth/User',{
+      const response =  await fetch('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Auth/User',{
                 method:'GET',
                      headers:{'Content-Type':'application/json'},
                     credentials:'include',
@@ -68,7 +68,7 @@ const Home = () =>{
         )();
     },[]);
    const onGridReady = useCallback((params) => {
-      axios.get('http://localhost:12831/api/Drug')
+      axios.get('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Drug')
         .then(result => setRawdata(result.data));
     }, []);
     console.log(rowData);

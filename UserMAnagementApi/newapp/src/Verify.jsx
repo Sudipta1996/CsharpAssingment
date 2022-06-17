@@ -25,7 +25,7 @@ const Verify=(props)=>{
       useEffect(() =>{
         (
         async () =>{
-          const response =  await fetch('http://localhost:12831/api/Auth/User',{
+          const response =  await fetch('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/User',{
                     method:'GET',
                          headers:{'Content-Type':'application/json'},
                         credentials:'include',
@@ -42,7 +42,7 @@ const Verify=(props)=>{
         },[]);
   
      useEffect(()=>{
-        axios.get("http://localhost:12831/api/Order/"+props.match.params.orderId).then(res=>{
+        axios.get("https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Order/"+props.match.params.orderId).then(res=>{
               setState({
                 ...state,
                 s:{
@@ -56,7 +56,7 @@ const Verify=(props)=>{
     const submit=(e)=>{
         console.log(state.s)
         
-          axios.post("http://localhost:12831/api/Orders",{
+          axios.post("https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Orders/",{
             orderId:state.s.orderId,
             userId:userId,
             

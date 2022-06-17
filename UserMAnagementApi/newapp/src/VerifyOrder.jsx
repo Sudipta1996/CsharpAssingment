@@ -21,7 +21,7 @@ function VerifyOrder(props) {
   
   useEffect(() => {  
     const GetData = async () => {  
-      const result = await axios('http://localhost:12831/api/Orders');  
+      const result = await axios('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Orders');  
       setData(result.data);  
     };  
   

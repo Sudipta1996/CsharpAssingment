@@ -56,7 +56,7 @@ const AddDrugs=()=>{
       getOption()
     },[])
     async function getOption(){
-      const res=await axios.get("http://localhost:12831/api/Supplier");
+      const res=await axios.get("https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Supplier");
      const arr=res.data.map(data=>({
        "label":`${data.supplierName}(${data.supplierId})`,
        "supplierId":data.supplierId,
@@ -107,7 +107,7 @@ const AddDrugs=()=>{
       console.log(state)
       if( state.drugName && state.quantity && state.expiryDate &&state. price && state.supplierId)
       {
-        axios.post("http://localhost:12831/api/Drug",{
+        axios.post("https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Drug",{
           drugName:state.drugName,
           quantity:state.quantity,
           expiryDate:state.expiryDate,

@@ -64,7 +64,7 @@ const Newregister=()=>{
         
         if(data.UserName && data.Email && data.Contact && data.UserAddress && data.UserPassword)
         {
-         axios.post("http://localhost:12831/api/Auth/Register",{
+         axios.post("https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Auth/Register",{
            UserName:data.UserName,
            Email:data.Email,
            UserAddress:data.UserAddress,

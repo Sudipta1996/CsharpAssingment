@@ -14,7 +14,7 @@ function OrderList(props) {
 
   useEffect(() => {  
     const GetData = async () => {  
-      const result = await axios('http://localhost:12831/api/Order');  
+      const result = await axios('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Order');  
       setData(result.data);  
     };  
   
@@ -24,7 +24,7 @@ function OrderList(props) {
   useEffect(() =>{
     (
     async () =>{
-      const response =  await fetch('http://localhost:12831/api/Auth/User',{
+      const response =  await fetch('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/User',{
                 method:'GET',
                      headers:{'Content-Type':'application/json'},
                     credentials:'include',

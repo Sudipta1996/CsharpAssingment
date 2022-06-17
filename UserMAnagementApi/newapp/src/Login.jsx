@@ -21,7 +21,7 @@ import Foot from './Foot'
         // setMessage("");
         // setLoading(true);
 
-        await fetch('http://localhost:12831/api/Auth/Login',{
+        await fetch('https://pharmacymanagementwebapiservice20220617105735.azurewebsites.net/api/Auth/Login',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             credentials:'include',
